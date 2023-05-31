@@ -101,7 +101,7 @@ class RentalResource extends Resource
                             $count += $rental->count;
                         }
                         $count_max = $rentalItem->quantity - $count;
-                        return 'Count (date: '.$rentalItem->rentals->last()->date.')';
+                        return 'Count';
                     }
                     return 'Count';
                 })
@@ -117,6 +117,11 @@ class RentalResource extends Resource
                 Tables\Columns\TextColumn::make('date')
                     ->date(),
                 Tables\Columns\TextColumn::make('count'),
+                Tables\Columns\TextColumn::make('total_deposit')
+                    ->getStateUsing(function(Rental $record):float{
+                        return $record->count * $record->rental_item()->get()->first()->deposit;
+                    })
+                    ->money('eur', shouldConvert: true),
             ])
             ->filters([
                 //
