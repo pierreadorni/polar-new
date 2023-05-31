@@ -32,7 +32,7 @@
                              class="w-full h-full object-cover"/>
                     </div>
                     <div class="flex flex-col justify-center items-center h-14 bg-tertiary relative">
-                        <h3 class="text-xl font-semibold">{{ $rentalItem->name }}</h3>
+                        <h3 class="text-xl font-semibold">Location : {{ $rentalItem->name }}</h3>
                         <p class="text-primary">{{ $rentalItem->price }}€</p>
                     </div>
                 </a>
