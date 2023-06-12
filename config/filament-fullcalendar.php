@@ -43,4 +43,5 @@ return [
     'firstDay' => 1,
     // show length of events in day view
     'eventDisplay' => 'block',
+    'height' => 'auto',
 ];

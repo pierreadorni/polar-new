@@ -25,7 +25,7 @@
         <!-- products -->
         <div class="flex flex-wrap justify-center mt-8">
             @foreach($rentalItems as $rentalItem)
-                <a href="/products/{{$rentalItem->id}}"
+                <a href="/services/{{$rentalItem->id}}"
                    class="w-72 h-52 bg-white rounded-xl overflow-hidden shadow-lg m-4 flex flex-col justify-between hover:scale-105 transition-all">
                     <div class="flex justify-center h-full w-full overflow-hidden">
                         <img src="storage/{{ $rentalItem->image }}" alt="{{ $rentalItem->name }}"

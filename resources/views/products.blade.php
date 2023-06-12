@@ -25,8 +25,8 @@
         <!-- products -->
         <div class="flex flex-wrap justify-center mt-8">
             @foreach($products as $product)
-                <a href="/products/{{$product->id}}"
-                   class="w-72 h-52 bg-white rounded-xl overflow-hidden shadow-lg m-4 flex flex-col justify-between hover:scale-105 transition-all">
+                <article
+                   class="w-72 h-52 bg-white rounded-xl overflow-hidden shadow-lg m-4 flex flex-col justify-between">
                     <div class="flex justify-center h-full w-full overflow-hidden">
                         <img src="storage/{{ $product->image }}" alt="{{ $product->name }}"
                              class="w-full h-full object-cover"/>
@@ -35,7 +35,7 @@
                         <h3 class="text-xl font-semibold">{{ $product->name }}</h3>
                         <p class="text-primary">{{ $product->price }}€</p>
                     </div>
-                </a>
+                </article>
             @endforeach
         </div>
     </div>

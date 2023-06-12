@@ -18,7 +18,7 @@
     <!-- Scripts -->
     @vite('resources/js/app.js')
 </head>
-<body class="antialiased h-screen selection:bg-red-500 selection:text-white pt-28">
+<body class="antialiased h-screen selection:bg-red-500 selection:text-white pt-28 bg-gray-200">
 <header class="p-6 fixed top-0 left-0 w-full bg-white h-20 transition-all z-10">
     <ul class="flex items-center justify-center gap-6 h-full">
         <li>

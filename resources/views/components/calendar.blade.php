@@ -14,39 +14,43 @@
     // on document ready
     document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
-            console.log('document ready')
-            console.log(window.calendarVars);
             const {Calendar, timeGridPlugin} = window.calendarVars;
 
             const timeSlots = @json($timeSlots);
 
             // create events from timeSlots
             const events = timeSlots.map((timeSlot) => {
-                // convert weekday and start time to date (weekday is a string ex: "monday")
                 const startDate = new Date();
-                startDate.setDate(startDate.getDate() + (weekDayStringToJsNum[timeSlot.weekday] + 7 - startDate.getDay()) % 7);
+                startDate.setDate(startDate.getDate() + (weekDayStringToJsNum[timeSlot.weekday] - startDate.getDay()) % 7);
                 startDate.setHours(timeSlot.start_time.split(':')[0]);
                 startDate.setMinutes(timeSlot.start_time.split(':')[1]);
+                startDate.setSeconds(0);
 
                 const endDate = new Date();
-                endDate.setDate(endDate.getDate() + (weekDayStringToJsNum[timeSlot.weekday] + 7 - endDate.getDay()) % 7);
+                endDate.setDate(endDate.getDate() + (weekDayStringToJsNum[timeSlot.weekday] - endDate.getDay()) % 7);
                 endDate.setHours(timeSlot.end_time.split(':')[0]);
                 endDate.setMinutes(timeSlot.end_time.split(':')[1]);
+                endDate.setSeconds(0);
 
                 // return event object
                 return {
                     id: timeSlot.id,
-                    title: timeSlot.members.length,
                     start: startDate,
+                    title: `${timeSlot.members.length} permanencier${timeSlot.members.length === 1 ? "" : "s"}`,
                     end: endDate,
+                    color: timeSlot.members.length === 0 ? '#D3B9B9FF' : (timeSlot.members.length === 1 ? '#A94040FF' : '#AC1010'),
+                    textColor: timeSlot.members.length === 0 ? '#000000' : '#FFFFFF',
                 }
             })
+
+            console.log(events)
+
 
             let calendar = new Calendar(document.getElementById("calendar"), {
                     plugins: [timeGridPlugin],
                     initialView: 'agenda',
-                    timeZone: 'UTC',
-                    locale: 'en',
+                    timeZone: 'local',
+                    locale: 'fr',
                     headerToolbar: {
                         left: '',
                         center: '',
@@ -58,7 +62,6 @@
                             duration: {
                                 days: 7
                             },
-                            firstDay: 3,
                             // hide day numbers
                             dayHeaderFormat: {
                                 'weekday': 'long',

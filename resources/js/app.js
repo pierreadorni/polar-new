@@ -8,7 +8,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import momentPlugin from '@fullcalendar/moment';
 import momentTimezonePlugin from '@fullcalendar/moment-timezone';
 import locales from '@fullcalendar/core/locales-all';
-
+import moment from "moment";
 window.calendarVars = {
     Calendar,
     timeGridPlugin,
@@ -20,4 +20,5 @@ window.calendarVars = {
     momentTimezonePlugin,
     locales
 }
+window.moment = moment;
 
