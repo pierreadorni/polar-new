@@ -13,6 +13,8 @@ class DailyHours extends Component
 
     public $timeSlots;
     public $open;
+    public $minOpeningTime;
+    public $maxClosingTime;
     /**
      * Create a new component instance.
      */
@@ -34,6 +36,12 @@ class DailyHours extends Component
         foreach ($this->timeSlots as $timeslot) {
             $timeslot->load('members');
         }
+
+
+        // get the minimum opening time
+        $this->minOpeningTime = Timeslot::all()->min('start_time');
+        // get the maximum closing time
+        $this->maxClosingTime = Timeslot::all()->max('end_time');
 
         // get the current time
         $now = date('H:i:s');
