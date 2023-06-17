@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Settings\WebsiteSettings;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -11,9 +12,12 @@ class AboutSection extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+
+    public string $aboutText;
+
+    public function __construct(WebsiteSettings $settings)
     {
-        //
+        $this->aboutText = $settings->aboutText;
     }
 
     /**

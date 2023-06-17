@@ -69,7 +69,7 @@
         </li>
     </ul>
     <div class="fixed top-20 left-0 w-full bg-primary text-white text-center py-1">
-        Petite information de la semaine
+        {{ $headerMessage }}
     </div>
 </header>
 {{ $slot }}
