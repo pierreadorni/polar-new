@@ -72,8 +72,8 @@
                         cy="{{ -sin(pi()-(pi()*(time() - strtotime($timeSlots->first()->start_time))/(strtotime($timeSlots->last()->end_time) - strtotime($timeSlots->first()->start_time))))*135 }}"
                     />
                     <text
-                        x="{{ cos(pi()-(pi()*(time() - strtotime($timeSlots->first()->start_time))/(strtotime($timeSlots->last()->end_time) - strtotime($timeSlots->first()->start_time))))*220 }}"
-                        y="{{ -sin(pi()-(pi()*(time() - strtotime($timeSlots->first()->start_time))/(strtotime($timeSlots->last()->end_time) - strtotime($timeSlots->first()->start_time))))*220 }}"
+                        x="{{ cos(pi()-(pi()*(time() - strtotime($timeSlots->first()->start_time))/(strtotime($timeSlots->last()->end_time) - strtotime($timeSlots->first()->start_time))))*230 }}"
+                        y="{{ -sin(pi()-(pi()*(time() - strtotime($timeSlots->first()->start_time))/(strtotime($timeSlots->last()->end_time) - strtotime($timeSlots->first()->start_time))))*230 }}"
                         fill="black"
                         text-anchor="middle"
                         alignment-baseline="middle"
