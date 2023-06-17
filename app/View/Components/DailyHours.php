@@ -43,6 +43,13 @@ class DailyHours extends Component
         // get the maximum closing time
         $this->maxClosingTime = Timeslot::all()->max('end_time');
 
+        // if there are no timeslots, set minOpeningTime to 8am and maxClosingTime to 6:30pm
+        if (Timeslot::all()->count() == 0) {
+            $this->minOpeningTime = '08:00:00';
+            $this->maxClosingTime = '18:30:00';
+        }
+
+
         // get the current time
         $now = date('H:i:s');
         // get the current timeslot
