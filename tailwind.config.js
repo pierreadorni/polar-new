@@ -21,6 +21,8 @@ module.exports = {
                 "primary-200": "#AC1010",
                 "primary-100": "#AC1010",
                 danger: colors.rose,
+                warning: colors.amber,
+                success: colors.emerald,
             },
             fontFamily: {
                 sans: ["Open Sans", "sans-serif"],

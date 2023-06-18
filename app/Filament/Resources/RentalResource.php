@@ -108,14 +108,18 @@ class RentalResource extends Resource
             ]);
     }
 
+    // sort by date
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('rental_item.name'),
-                Tables\Columns\TextColumn::make('user_cas'),
+                Tables\Columns\TextColumn::make('user_cas')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('date')
-                    ->date(),
+                    ->date()
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('count'),
                 Tables\Columns\TextColumn::make('total_deposit')
                     ->getStateUsing(function(Rental $record):float{
@@ -124,7 +128,35 @@ class RentalResource extends Resource
                     ->money('eur', shouldConvert: true),
             ])
             ->filters([
-                //
+                // filter rental items
+                Tables\Filters\SelectFilter::make('rental_item')
+                    ->relationship('rental_item', 'name'),
+                // filter date
+                Tables\Filters\Filter::make('date')
+                    ->form([
+                        Forms\Components\DatePicker::make('date_from'),
+                        Forms\Components\DatePicker::make('date_until'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['date_from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('date', '>=', $date),
+                            )
+                            ->when(
+                                $data['date_until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('date', '<=', $date),
+                            );
+                    }),
+                // filter user CAS
+                Tables\Filters\SelectFilter::make('user_cas')
+                    ->options(function (): array {
+                        return Rental::all()->pluck('user_cas')->unique()->mapWithKeys(function ($cas) {
+                            return [$cas => $cas];
+                        })->toArray();
+                    })
+                    ->searchable(),
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
