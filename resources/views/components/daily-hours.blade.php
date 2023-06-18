@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center bg-gray-200">
     @if(count($timeSlots) > 0)
-        <svg width="400" height="200" viewBox="0 0 410 250">
+        <svg class="w-72 md:w-96 overflow-x-visible" viewBox="0 0 410 250">
             <g transform="translate(200,235)" stroke-width="1">
                 @foreach($timeSlots as $timeSlot)
                     <path
@@ -87,7 +87,7 @@
             </g>
         </svg>
     @else
-        <svg width="400" height="200" viewBox="0 0 410 250">
+        <svg class="w-72 md:w-96 overflow-x-visible" viewBox="0 0 410 250">
             <g transform="translate(200,235)" stroke-width="1">
                 <path
                     d="M0 0 -200 0 A199 199 0 0 1 200 0Z"

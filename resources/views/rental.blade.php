@@ -1,5 +1,5 @@
 <x-layout title="Location {{ $rentalItem->name }} - Le Polar">
-    <div class="w-screen flex flex-col p-24 min-h-screen">
+    <div class="w-screen flex flex-col p-4 sm:p-10 md:p-16 lg:p-24 min-h-screen">
         <h2 class="text-4xl font-semibold">Location de '{{ $rentalItem->name  }}'</h2>
         <span class="flex gap-2 items-center">
             <x-heroicon-o-currency-euro class="w-8 h-8 text-primary"/>
@@ -90,6 +90,7 @@
                         plugins: [dayGridPlugin, interactionPlugin],
                         initialView: 'dayGridMonth',
                         height: 'auto',
+                        firstDay: 1,
                         locale: 'fr',
                         dateClick: ({date}) => {
                             selectedDate = date.toDateString();

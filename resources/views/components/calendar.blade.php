@@ -64,7 +64,7 @@
                             },
                             // hide day numbers
                             dayHeaderFormat: {
-                                'weekday': 'long',
+                                'weekday': 'short',
                             },
                             // start day at 8am
                             slotMinTime: '08:00:00',

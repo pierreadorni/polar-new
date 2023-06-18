@@ -5,7 +5,7 @@
 
         <!-- searchbar -->
         <form class="border-2 border-black rounded-full w-fit overflow-hidden flex mt-8 relative">
-            <input type="text" class="w-96 border-0" name="q" placeholder="rechercher un service"
+            <input type="text" class="w-48 md:w-96 border-0" name="q" placeholder="rechercher un service"
                    value="{{ request()->q }}"/>
             <a href="/services" class="absolute right-20 top-2 {{ request()->q == '' ? 'hidden' : '' }}">
                 <svg class="w-6 h-6 text-gray-300" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em"

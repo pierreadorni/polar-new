@@ -4,7 +4,7 @@
 
     <div class="flex flex-col items-center mt-12">
         <h3 class="text-2xl font-semibold">Nos Services</h3>
-        <ul class="flex mt-5 gap-12">
+        <ul class="flex flex-col md:flex-row mt-5 gap-12">
             @foreach($services as $service)
                 <li>
                     <a href="/services/{{$service->id}}">
@@ -37,7 +37,7 @@
 
     <div class="flex flex-col items-center mt-12">
         <h3 class="text-2xl font-semibold">Nos Produits</h3>
-        <ul class="flex mt-5 gap-12">
+        <ul class="flex mt-5 gap-12 flex-col md:flex-row">
             @foreach($products as $product)
                 <li>
                     <a href="/services/{{$product->id}}">
