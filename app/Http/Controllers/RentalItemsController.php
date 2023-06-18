@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RentalItem;
+use Illuminate\Support\Facades\Log;
+
 class RentalItemsController extends Controller
 {
     public function index(Request $request)
@@ -18,6 +20,14 @@ class RentalItemsController extends Controller
         $rentalItems = RentalItem::all();
         return view('services', [
             'rentalItems' => $rentalItems,
+        ]);
+    }
+
+    public function show($id)
+    {
+        $rentalItem = RentalItem::findOrFail($id);
+        return view('rental', [
+            'rentalItem' => $rentalItem,
         ]);
     }
 }

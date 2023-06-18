@@ -22,13 +22,13 @@ class DailyHours extends Component
     {
         // get today's day as a string
         $today = [
+            0 => 'sunday',
             1 => 'monday',
             2 => 'tuesday',
             3 => 'wednesday',
             4 => 'thursday',
             5 => 'friday',
             6 => 'saturday',
-            7 => 'sunday'
         ][date('w')];
         // get timesolts for the day
         $this->timeSlots = TimeSlot::where('weekday', $today)->get();
@@ -48,7 +48,6 @@ class DailyHours extends Component
             $this->minOpeningTime = '08:00:00';
             $this->maxClosingTime = '18:30:00';
         }
-
 
         // get the current time
         $now = date('H:i:s');
