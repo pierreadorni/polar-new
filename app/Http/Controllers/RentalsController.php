@@ -40,8 +40,12 @@ class RentalsController extends Controller
             'rentalItem' => 'required|exists:rental_items,id',
         ]);
 
+        Log::info("before getting user");
+        $casUser = session('cas_user');
+        Log::info("Authenticated user is ".$casUser);
+
         $rentalItem->rentals()->create([
-            'user_cas' => "adornipi",
+            'user_cas' => $casUser,
             'date' => $request->date,
             'count' => $request->quantity,
         ]);

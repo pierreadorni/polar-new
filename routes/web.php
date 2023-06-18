@@ -32,6 +32,6 @@ Route::get('/products', [ProductsController::class, 'index'])->name('products.in
 
 Route::get('/services', [RentalItemsController::class, 'index'])->name('rentalItems.index');
 
-Route::get('/services/{rentalItem}', [RentalItemsController::class, 'show'])->name('rentalItems.show');
+Route::get('/services/{rentalItem}', [RentalItemsController::class, 'show'])->name('rentalItems.show')->middleware("cas.auth");
 Route::post('/rentals', [RentalsController::class, 'store'])->name('rentals.store');
 
