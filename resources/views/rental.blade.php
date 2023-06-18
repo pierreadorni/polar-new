@@ -104,11 +104,11 @@
                         },
                         dayCellClassNames: ({date}) => {
                             // check if there is a rental for this day
-                            const rental = rentals.find(rental => {
+                            const dayRentals = rentals.filter(rental => {
                                 const rentalDate = new Date(rental.date);
                                 return rentalDate.toDateString() === date.toDateString();
                             });
-                            if (rental && rental.count >= {{ $rentalItem->quantity }}) {
+                            if (dayRentals && dayRentals.reduce((total, rental) => total += rental.count, 0) >= {{ $rentalItem->quantity }}) {
                                 return '!bg-red-500 text-white';
                             }
 
@@ -120,7 +120,7 @@
                             return 'bg-white text-black';
                         },
                         dayCellContent: ({date, dayNumberText}) => {
-                            const rental = rentals.find(rental => {
+                            const dayRentals = rentals.filter(rental => {
                                 const rentalDate = new Date(rental.date);
                                 return rentalDate.toDateString() === date.toDateString();
                             });
@@ -130,8 +130,8 @@
                             number.innerHTML = dayNumberText;
                             let totalHtml = number.outerHTML;
 
-                            if (rental) {
-                                totalHtml += `<div class="text-lg">${rental.count}/{{ $rentalItem->quantity }}</div>`;
+                            if (dayRentals) {
+                                totalHtml += `<div class="text-lg">${dayRentals.reduce((total, rental) => total += rental.count, 0)}/{{ $rentalItem->quantity }}</div>`;
                             } else {
                                 totalHtml += `<div class="text-lg text-gray-300">0/{{ $rentalItem->quantity }}</div>`;
                             }
