@@ -1,7 +1,7 @@
 <x-layout title="Nos Produits - Le Polar">
     <div class="bg-tertiary pt-12 flex flex-col items-center min-h-screen">
         <h2 class="text-3xl font-bold text-black text-center">Découvrez tous les produits proposés au Polar</h2>
-        <h4 class="text-xl text-center">De nombreux produits à tarifs avantageux</h4>
+        <h4 class="text-xl text-center">De nombreux produits à tarifs avantageux, à acheter sur place</h4>
 
         <!-- searchbar -->
         <form class="border-2 border-black rounded-full w-fit overflow-hidden flex mt-8 relative">
@@ -33,7 +33,11 @@
                     </div>
                     <div class="flex flex-col justify-center items-center h-14 bg-tertiary relative">
                         <h3 class="text-xl font-semibold">{{ $product->name }}</h3>
-                        <p class="text-primary">{{ $product->price }}€</p>
+                        <div class="flex gap-2">
+                            <span class="text-primary">{{ $product->price }}€</span>
+
+                            <span class="text-gray-500">({{ $product->quantity }} en stock)</span>
+                        </div>
                     </div>
                 </article>
             @endforeach

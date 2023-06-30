@@ -1,7 +1,7 @@
 <x-layout title="Nos Services - Le Polar">
     <div class="bg-tertiary pt-12 flex flex-col items-center min-h-screen">
         <h2 class="text-3xl font-bold text-black text-center">Découvrez tous les services du Polar</h2>
-        <h4 class="text-xl text-center">De nombreux services à tarifs avantageux</h4>
+        <h4 class="text-xl text-center">Réservez vos locations en ligne</h4>
 
         <!-- searchbar -->
         <form class="border-2 border-black rounded-full w-fit overflow-hidden flex mt-8 relative">
