@@ -93,8 +93,9 @@
                         firstDay: 1,
                         locale: 'fr',
                         dateClick: ({date}) => {
-                            // check if date is in the past
-                            if (date < new Date()) {
+                            // check if date is in the past (today is ok)
+                            const yesterday = window.moment().subtract(1, 'days').toDate();
+                            if (date < yesterday) {
                                 return;
                             }
                             selectedDate = date.toDateString();
@@ -110,8 +111,9 @@
                             submitButton.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
                         },
                         dayCellClassNames: ({date}) => {
-                            if (date < new Date()) {
-                                return 'text-gray-300 cursor-not-allowed';
+                            const yesterday = window.moment().subtract(1, 'days').toDate();
+                            if (date < yesterday) {
+                                return 'bg-gray-200 text-gray-400 cursor-not-allowed';
                             }
 
                             // check if there is a rental for this day
