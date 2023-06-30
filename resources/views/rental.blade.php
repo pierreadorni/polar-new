@@ -97,11 +97,13 @@
                             calendar.next()
                             calendar.prev()
 
-                            console.log(window.moment(date).format("yyyy-MM-DD"))
-
                             // set date input value
                             const dateInput = document.getElementById("date");
                             dateInput.value = window.moment(date).format("yyyy-MM-DD");
+
+                            // scroll down to end of form
+                            const submitButton = document.querySelector("input[type=submit]");
+                            submitButton.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
                         },
                         dayCellClassNames: ({date}) => {
                             // check if there is a rental for this day
