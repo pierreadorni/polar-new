@@ -26,9 +26,9 @@ class StatsOverview extends BaseWidget
             $startOfweek = $startOfweek->startOfWeek();
             $endOfWeek = $endOfWeek->endOfWeek();
             Log::info($startOfweek . " -> " . $endOfWeek);
-            $rentals[] = Rental::whereBetween('date', [$startOfweek, $endOfWeek])->count();
+            $rentals[] = Rental::whereBetween('date', [$startOfweek->subHour(), $endOfWeek])->sum('count');
             // multiply rental's count by rentals->rentalItems's price
-            $revenue[] = Rental::whereBetween('date', [$startOfweek, $endOfWeek])->get()->map(function ($rental) {
+            $revenue[] = Rental::whereBetween('date', [$startOfweek->subHour(), $endOfWeek])->get()->map(function ($rental) {
                 return $rental->rental_item()->first()->price * $rental->count;
             })->sum();
         }
@@ -36,17 +36,16 @@ class StatsOverview extends BaseWidget
         return [
             Card::make('Inventory Items', InventoryItem::all()->count())
                 ->icon('heroicon-o-collection'),
-            Card::make('Items rented', Rental::whereBetween('date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count())
+            Card::make('Items rented this week', $rentals[5])
                 ->icon('heroicon-o-shopping-cart')
-                ->description('This week')
-                ->chart($rentals),
-            Card::make('Revenue this week', Rental::whereBetween('date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get()->map(function ($rental) {
-                return $rental->rental_item()->first()->price * $rental->count;
-            })->sum()."€")
+                ->description(($rentals[5]-$rentals[4] >= 0 ? "+" : "").($rentals[5]-$rentals[4]))
+                ->chart($rentals)
+                ->color($rentals[5]-$rentals[4] >= 0 ? 'success' : 'danger'),
+            Card::make('Revenue this week',$revenue[5]."€")
                 ->icon('heroicon-o-currency-euro')
-                ->description("+".($revenue[5]-$revenue[4])."€")
+                ->description(($revenue[5]-$revenue[4] >= 0 ? "+" : "").($revenue[5]-$revenue[4])."€")
                 ->chart($revenue)
-                ->color('success'),
+                ->color($revenue[5]-$revenue[4] >= 0 ? 'success' : 'danger'),
         ];
     }
 }

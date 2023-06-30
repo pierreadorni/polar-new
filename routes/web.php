@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("home");
 
 Route::get('/hours', function () {
     return view('hours');
-});
+})->name("hours");
 
 Route::get('/team', [MembersController::class, 'index'])->name('members.index');
 

@@ -28,7 +28,7 @@
                 <article
                    class="w-72 h-52 bg-white rounded-xl overflow-hidden shadow-lg m-4 flex flex-col justify-between">
                     <div class="flex justify-center h-full w-full overflow-hidden">
-                        <img src="storage/{{ $product->image }}" alt="{{ $product->name }}"
+                        <img src="{{ asset("storage/$product->image") }}" alt="{{ $product->name }}"
                              class="w-full h-full object-cover"/>
                     </div>
                     <div class="flex flex-col justify-center items-center h-14 bg-tertiary relative">

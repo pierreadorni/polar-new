@@ -17,7 +17,7 @@ class RentalItemResource extends Resource
 {
     protected static ?string $model = RentalItem::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-calendar';
     protected static ?string $navigationGroup = 'inventory';
 
     public static function form(Form $form): Form

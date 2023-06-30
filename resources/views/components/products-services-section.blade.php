@@ -7,10 +7,10 @@
         <ul class="flex flex-col md:flex-row mt-5 gap-12">
             @foreach($services as $service)
                 <li>
-                    <a href="/services/{{$service->id}}">
+                    <a href="{{ route('rentalItems.show', $service) }}">
                         <article class="rounded-xl overflow-hidden bg-gray-300 h-52 w-56">
                             <div class="bg-white h-44 flex items-center justify-center">
-                                <img src="/storage/{{$service->image}}" alt="image placeholder" class="w-32"/>
+                                <img src="{{asset("storage/".$service->image)}}" alt="image placeholder" class="w-32"/>
                             </div>
                             <div class="flex justify-center items-center h-8">
                                 {{ $service->name }}
@@ -43,7 +43,7 @@
                     <a href="/services/{{$product->id}}">
                         <article class="rounded-xl overflow-hidden bg-gray-300 h-52 w-56">
                             <div class="bg-white h-44 flex items-center justify-center">
-                                <img src="/storage/{{$product->image}}" alt="image placeholder" class="w-32"/>
+                                <img src="{{ asset("storage/$product->image")}}" alt="image placeholder" class="w-32"/>
                             </div>
                             <div class="flex justify-center items-center h-8">
                                 {{ $product->name }}

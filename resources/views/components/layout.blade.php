@@ -26,38 +26,38 @@
 <header class="p-6 fixed top-0 left-0 w-screen bg-white h-20 transition-all z-10 hidden md:block">
     <ul class="flex items-center justify-center gap-6 h-full">
         <li>
-            <a class="" href="/">
-                <img src="/images/polar-with-name.svg" alt="polar logo" class="w-24"/>
+            <a class="" href="{{ route("home") }}">
+                <img src="{{ asset("images/polar-with-name.svg") }}" alt="polar logo" class="w-24"/>
             </a>
         </li>
         <li>
-            <a href="/" class="font-semibold {{ request()->is('/') ? 'text-primary' : 'text-secondary' }}">
+            <a href="{{ route("home") }}" class="font-semibold {{ request()->is('/') ? 'text-primary' : 'text-secondary' }}">
                 Accueil
             </a>
         </li>
         <li>
-            <a href="/hours" class="font-semibold {{ request()->is('hours') ? 'text-primary' : 'text-secondary'}}">
+            <a href="{{ route("hours") }}" class="font-semibold {{ request()->is('hours') ? 'text-primary' : 'text-secondary'}}">
                 Horaires
             </a>
         </li>
         <li>
-            <a href="/products" class="font-semibold {{ request()->is('products') ? 'text-primary' : 'text-secondary'}}">
+            <a href="{{ route("products.index") }}" class="font-semibold {{ request()->is('products') ? 'text-primary' : 'text-secondary'}}">
                 Produits
             </a>
         </li>
         <li>
-            <a href="/services" class="font-semibold {{ request()->is('services') ? 'text-primary' : 'text-secondary'}}">
+            <a href="{{ route("rentalItems.index") }}" class="font-semibold {{ request()->is('services') ? 'text-primary' : 'text-secondary'}}">
                 Services
             </a>
         </li>
         <li>
-            <a href="/team" class="font-semibold {{ request()->is('team') ? 'text-primary' : 'text-secondary'}}">
+            <a href="{{ route('members.index') }}" class="font-semibold {{ request()->is('team') ? 'text-primary' : 'text-secondary'}}">
                 L'équipe
             </a>
         </li>
 
         <li>
-            <a href="/#about" class="text-secondary font-semibold">
+            <a href="{{ route("home") }}#about" class="text-secondary font-semibold">
                 A propos
             </a>
         </li>
@@ -67,7 +67,7 @@
             </a>
         </li>
         <li>
-            <a href="/admin">
+            <a href="{{ url("/admin") }}">
                 <button class="bg-primary text-white font-medium rounded-lg px-3 py-2 hover:bg-red-900 transition">Connexion Admin</button>
             </a>
         </li>
@@ -77,40 +77,40 @@
     </div>
 </header>
 <header class="fixed top-0 left-0 w-screen bg-white h-20 transition-all z-10 flex justify-between items-center md:hidden">
-    <a class="" href="/">
-        <img src="/images/polar-with-name.svg" alt="polar logo" class="w-24"/>
+    <a class="" href="{{ route("home") }}">
+        <img src="{{ asset("/images/polar-with-name.svg")}}" alt="polar logo" class="w-24"/>
     </a>
     <x-heroicon-o-menu class="h-8 w-8 text-secondary mr-6 cursor-pointer" id="mobile-menu-button"/>
     <dialog id="mobile-menu" class="fixed top-20 z-10 right-0 mr-0 bg-white border border-tertiary">
         <ul class="flex flex-col items-center justify-center gap-6 h-full">
             <li>
-                <a href="/" class="font-semibold {{ request()->is('/') ? 'text-primary' : 'text-secondary' }}">
+                <a href="{{ route("home") }}" class="font-semibold {{ request()->is('/') ? 'text-primary' : 'text-secondary' }}">
                     Accueil
                 </a>
             </li>
             <li>
-                <a href="/hours" class="font-semibold {{ request()->is('hours') ? 'text-primary' : 'text-secondary'}}">
+                <a href="{{ route("hours") }}" class="font-semibold {{ request()->is('hours') ? 'text-primary' : 'text-secondary'}}">
                     Horaires
                 </a>
             </li>
             <li>
-                <a href="/products" class="font-semibold {{ request()->is('products') ? 'text-primary' : 'text-secondary'}}">
+                <a href="{{ route("products.index") }}" class="font-semibold {{ request()->is('products') ? 'text-primary' : 'text-secondary'}}">
                     Produits
                 </a>
             </li>
             <li>
-                <a href="/services" class="font-semibold {{ request()->is('services') ? 'text-primary' : 'text-secondary'}}">
+                <a href="{{ route("rentalItems.index") }}" class="font-semibold {{ request()->is('services') ? 'text-primary' : 'text-secondary'}}">
                     Services
                 </a>
             </li>
             <li>
-                <a href="/team" class="font-semibold {{ request()->is('team') ? 'text-primary' : 'text-secondary'}}">
+                <a href="{{ route("members.index") }}" class="font-semibold {{ request()->is('team') ? 'text-primary' : 'text-secondary'}}">
                     L'équipe
                 </a>
             </li>
 
             <li>
-                <a href="/#about" class="text-secondary font-semibold">
+                <a href="{{ route("home") }}#about" class="text-secondary font-semibold">
                     A propos
                 </a>
             </li>
@@ -120,7 +120,7 @@
                 </a>
             </li>
             <li>
-                <a href="/admin" class="bg-primary text-white font-medium rounded-lg px-3 py-2 hover:bg-red-900 transition">
+                <a href="{{ url("/admin") }}" class="bg-primary text-white font-medium rounded-lg px-3 py-2 hover:bg-red-900 transition">
                     Connexion Admin
                 </a>
             </li>

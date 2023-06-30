@@ -1,5 +1,5 @@
 <x-layout title="Location {{ $rentalItem->name }} - Le Polar">
-    <div class="w-screen flex flex-col p-4 sm:p-10 md:p-16 lg:p-24 min-h-screen">
+    <div class="bg-tertiary w-screen flex flex-col p-4 sm:p-10 md:p-16 lg:p-24 min-h-screen">
         <h2 class="text-4xl font-semibold">Location de '{{ $rentalItem->name  }}'</h2>
         <span class="flex gap-2 items-center">
             <x-heroicon-o-currency-euro class="w-8 h-8 text-primary"/>
@@ -45,7 +45,7 @@
                         {{ $message }}</span>
                     @enderror
                 </label>
-                <input type="submit" value="réserver" class="text-white bg-primary px-4 py-1 border outline-none rounded-lg focus:ring-offset-2 focus:ring-2 ring-primary cursor-pointer">
+                <input type="submit" value="réserver" class="text-white bg-primary px-4 py-1 border outline-none rounded-lg focus:ring-offset-2 focus:ring-2 ring-primary cursor-pointer hover:bg-red-900 transition">
             </div>
         </form>
     </div>

@@ -7,7 +7,7 @@
         <form class="border-2 border-black rounded-full w-fit overflow-hidden flex mt-8 relative">
             <input type="text" class="w-48 md:w-96 border-0" name="q" placeholder="rechercher un service"
                    value="{{ request()->q }}"/>
-            <a href="/services" class="absolute right-20 top-2 {{ request()->q == '' ? 'hidden' : '' }}">
+            <a href="{{ route("rentalItems.index") }}" class="absolute right-20 top-2 {{ request()->q == '' ? 'hidden' : '' }}">
                 <svg class="w-6 h-6 text-gray-300" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em"
                      width="1em" xmlns="http://www.w3.org/2000/svg">
                     <path fill="none" stroke="#000" stroke-width="2" d="M7,7 L17,17 M7,17 L17,7"></path>
@@ -25,7 +25,7 @@
         <!-- products -->
         <div class="flex flex-wrap justify-center mt-8">
             @foreach($rentalItems as $rentalItem)
-                <a href="/services/{{$rentalItem->id}}"
+                <a href="{{ route("rentalItems.show", $rentalItem) }}"
                    class="w-72 h-52 bg-white rounded-xl overflow-hidden shadow-lg m-4 flex flex-col justify-between hover:scale-105 transition-all">
                     <div class="flex justify-center h-full w-full overflow-hidden">
                         <img src="storage/{{ $rentalItem->image }}" alt="{{ $rentalItem->name }}"

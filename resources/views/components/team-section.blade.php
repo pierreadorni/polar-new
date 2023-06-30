@@ -4,7 +4,7 @@
         @foreach($members as $member)
             <li class="flex flex-col items-center">
                 <img
-                    src="/storage/{{ $member->photo }}"
+                    src="{{ asset("/storage/$member->photo") }}"
                     alt="{{ $member->full_name }}"
                     class="w-24 h-24 rounded-full mx-auto object-center object-cover"
                 />
