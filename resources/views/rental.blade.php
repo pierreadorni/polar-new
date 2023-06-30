@@ -93,6 +93,10 @@
                         firstDay: 1,
                         locale: 'fr',
                         dateClick: ({date}) => {
+                            // check if date is in the past
+                            if (date < new Date()) {
+                                return;
+                            }
                             selectedDate = date.toDateString();
                             calendar.next()
                             calendar.prev()
@@ -106,11 +110,16 @@
                             submitButton.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
                         },
                         dayCellClassNames: ({date}) => {
+                            if (date < new Date()) {
+                                return 'text-gray-300 cursor-not-allowed';
+                            }
+
                             // check if there is a rental for this day
                             const dayRentals = rentals.filter(rental => {
                                 const rentalDate = new Date(rental.date);
                                 return rentalDate.toDateString() === date.toDateString();
                             });
+
                             if (dayRentals && dayRentals.reduce((total, rental) => total += rental.count, 0) >= {{ $rentalItem->quantity }}) {
                                 return '!bg-red-500 text-white';
                             }
@@ -119,6 +128,7 @@
                             if (selectedDate === date.toDateString()) {
                                 return '!bg-blue-500 text-white';
                             }
+
 
                             return 'bg-white text-black';
                         },
