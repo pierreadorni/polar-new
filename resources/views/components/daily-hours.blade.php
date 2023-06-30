@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center bg-gray-200">
     @if(count($timeSlots) > 0)
-        <svg class="w-72 md:w-96 overflow-visible" viewBox="0 0 400 250">
-            <g transform="translate(200,245)" stroke-width="1">
+        <svg class="w-112 md:w-128" viewBox="0 0 550 250">
+            <g transform="translate(275,245)" stroke-width="1">
                 @foreach($timeSlots as $timeSlot)
                     <path
                         d="M0 0 {{ cos(pi()-(pi()*$loop->index/count($timeSlots)))*200 }} {{ -sin(pi()-(pi()*$loop->index/count($timeSlots)))*200}} A199 199 0 0 1 {{ cos(pi()-(pi()*($loop->index+1)/count($timeSlots)))*200 }} {{ -sin(pi()-(pi()*($loop->index+1)/count($timeSlots)))*200}}Z"
@@ -9,10 +9,10 @@
                     />
                 @endforeach
             </g>
-            <g transform="translate(200, 245)" fill="rgb(229 231 235)" stroke="rgb(229 231 235)" stroke-width="1">
+            <g transform="translate(275, 245)" fill="rgb(229 231 235)" stroke="rgb(229 231 235)" stroke-width="1">
                 <path d="M0 0 -140 0 A139 139 0 0 1 140 0Z"/>
             </g>
-            <g transform="translate(200,245)" stroke-width="1">
+            <g transform="translate(275,245)" stroke-width="1">
                 @foreach($timeSlots as $timeSlot)
                     <path
                         d="M0 0 {{ cos(pi()-(pi()*$loop->index/count($timeSlots)))*130 }} {{ -sin(pi()-(pi()*$loop->index/count($timeSlots)))*130}} A129 129 0 0 1 {{ cos(pi()-(pi()*($loop->index+1)/count($timeSlots)))*130 }} {{ -sin(pi()-(pi()*($loop->index+1)/count($timeSlots)))*130}}Z"
@@ -20,7 +20,7 @@
                     />
                 @endforeach
             </g>
-            <g transform="translate(200, 245)" fill="rgb(229 231 235)" stroke="rgb(229 231 235)" stroke-width="1">
+            <g transform="translate(275, 245)" fill="rgb(229 231 235)" stroke="rgb(229 231 235)" stroke-width="1">
                 <path d="M0 0 -120 0 A119 119 0 0 1 120 0Z"/>
                 @foreach($timeSlots as $timeSlot)
                     <text
@@ -87,23 +87,23 @@
             </g>
         </svg>
     @else
-        <svg class="w-72 md:w-96 overflow-x-visible" viewBox="0 0 400 250">
-            <g transform="translate(200,245)" stroke-width="1">
+        <svg class="w-112 md:w-128" viewBox="0 0 550 250">
+            <g transform="translate(275,245)" stroke-width="1">
                 <path
                     d="M0 0 -200 0 A199 199 0 0 1 200 0Z"
                     fill="#C25858"
                 />
             </g>
-            <g transform="translate(200, 245)" fill="rgb(229 231 235)" stroke="rgb(229 231 235)" stroke-width="1">
+            <g transform="translate(275, 245)" fill="rgb(229 231 235)" stroke="rgb(229 231 235)" stroke-width="1">
                 <path d="M0 0 -140 0 A139 139 0 0 1 140 0Z"/>
             </g>
-            <g transform="translate(200,245)" stroke-width="1">
+            <g transform="translate(275,245)" stroke-width="1">
                 <path
                     d="M0 0 -130 0 A129 129 0 0 1 130 0Z"
                     fill="#C25858"
                 />
             </g>
-            <g transform="translate(200, 245)" fill="rgb(229 231 235)" stroke="rgb(229 231 235)" stroke-width="1">
+            <g transform="translate(275, 245)" fill="rgb(229 231 235)" stroke="rgb(229 231 235)" stroke-width="1">
                 <path d="M0 0 -120 0 A119 119 0 0 1 120 0Z"/>
                     <text
                         x="-95"

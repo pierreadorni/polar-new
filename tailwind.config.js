@@ -26,6 +26,10 @@ module.exports = {
             },
             fontFamily: {
                 sans: ["Open Sans", "sans-serif"],
+            },
+            width: {
+                112: "28rem",
+                128: "32rem",
             }
         },
     },
