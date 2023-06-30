@@ -31,6 +31,12 @@ class RentalItemResource extends Resource
                 Forms\Components\TextInput::make('quantity')
                     ->required(),
                 Forms\Components\TextInput::make('price')
+                    ->numeric()
+                    ->mask(fn (Forms\Components\TextInput\Mask $mask) => $mask
+                        ->numeric()
+                        ->decimalSeparator(',')
+                        ->money("€")
+                    )
                     ->required(),
                 Forms\Components\TextInput::make('deposit')
                     ->required(),
