@@ -131,9 +131,9 @@
     </div>
 </header>
 {{ $slot }}
-<footer class="h-48 bg-primary py-6 text-white" id="contact">
-    <h3 class="text-2xl font-semibold text-center">Contact</h3>
-    <div class="flex justify-around">
+<footer class="h-48 bg-primary py-6 text-white flex justify-around" id="contact">
+    <div class="flex flex-col">
+        <h3 class="text-2xl font-semibold text-center mb-5">Contact</h3>
         <a class="flex items-center hover:text-gray-300 transition" href="mailto:polar@utc.fr">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
                  aria-hidden="true" height="1em"
@@ -155,8 +155,8 @@
         </a>
     </div>
 
-    <h3 class="text-2xl font-semibold text-center">Où nous trouver</h3>
-    <div class="flex justify-center mt-2">
+    <div class="flex flex-col mt-2">
+        <h3 class="text-2xl font-semibold text-center mb-5">Où nous trouver</h3>
         <a class="flex items-center hover:text-gray-300 transition" href="https://goo.gl/maps/q6soHUihaptyGQEr5">
             <svg class="h-6 w-6" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true"
                  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
